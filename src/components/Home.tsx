@@ -2,18 +2,16 @@ import styled from "styled-components";
 import bgImg from "@/assets/forest-image.jpg";
 import avatarImg from "@/assets/avatar.png"
 
-
-// 背景層
 const BgWrapper = styled.div`
   position: relative;
-  min-height: 60vh;
+  height: 50vh;
   width: 100%;
-  background-color: pink;
+  background-color: black;
   overflow: hidden;
 `;
 
 const BgImage = styled.div`
-  height: 50vh;
+  height: 100%;
   width: 100%;
   background-image: url(${bgImg});
   background-size: cover;
@@ -23,19 +21,17 @@ const BgImage = styled.div`
   -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
 `;
 
-
-
-// // 內容層：整個區塊置中
-// const Content = styled.div`
-//   position: absolute;
-//   top: 0; left: 0;
-//   width: 100%; height: 100%;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;      /* 水平置中 */
-//   justify-content: center;  /* 垂直置中 */
-//   z-index: 1;
-// `;
+const Content = styled.div`
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  z-index: 1;
+  pointer-events: none;
+`;
 
 // 頭貼樣式
 const Avatar = styled.img`
@@ -43,7 +39,6 @@ const Avatar = styled.img`
   height: 150px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 24px; /* 與下面的社群連結保持距離 */
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 `;
 
@@ -66,29 +61,11 @@ const Avatar = styled.img`
 
 function Home() {
     return (
-        // <BgContainer $bg={bgImg}>
-        //     <Content>
-        //         {/* 正中央的頭貼 */}
-        //         <Avatar src={avatarImg} alt="主人頭貼" />
-
-        //         {/* 放在頭貼下方的社群連結 */}
-        //         <SocialLinks>
-        //             <SocialLink href="https://twitter.com/你的帳號" target="_blank" rel="noreferrer">
-        //                 Twitter
-        //             </SocialLink>
-        //             <SocialLink href="https://github.com/你的帳號" target="_blank" rel="noreferrer">
-        //                 GitHub
-        //             </SocialLink>
-        //             <SocialLink href="https://www.linkedin.com/in/你的帳號" target="_blank" rel="noreferrer">
-        //                 LinkedIn
-        //             </SocialLink>
-        //         </SocialLinks>
-        //     </Content>
-      // </BgContainer>
       <BgWrapper>
-        <BgImage>
-
-        </BgImage>
+        <BgImage />
+        <Content>
+          <Avatar src={avatarImg} alt="主人頭貼" />
+        </Content>
       </BgWrapper>
 
     );
