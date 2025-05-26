@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import bgImg from "@/assets/forest-image.jpg";
+import bgImg from "@/assets/white.png";
 import avatarImg from "@/assets/avatar.png"
 
 interface BgContainerProps {
@@ -11,12 +11,23 @@ const BgContainer = styled.div<BgContainerProps>`
     position: relative;
     min-height: 100vh;
     width: 100%;
-    background-image: url(${props => props.$bg});
+    background-image:
+      linear-gradient(
+        to bottom,
+        rgba(0,0,0,0)    0%,
+        rgba(0,0,0,0)   40%,
+        rgba(0,0,0,0.25)50%,
+        rgba(0,0,0,0.5) 60%,
+        rgba(0,0,0,0.5)100% 
+      ),
+      url(${props => props.$bg});
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    overflow: hidden; /* 保護內容不會跑出去 */
+    overflow: hidden;
 `;
+
+
 
 // 內容層：整個區塊置中
 const Content = styled.div`
